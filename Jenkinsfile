@@ -15,10 +15,11 @@ pipeline {
                 sh './gradlew test'
             }
         }
+        stage('Run App'){
+          runApp()
+        }
     }
-    stage('Run App'){
-        runApp()
-    }
+   
 }
 
 def runApp(){
