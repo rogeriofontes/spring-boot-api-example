@@ -19,7 +19,8 @@ pipeline {
         }
         stage('Build Docker image') {
             steps {
-                sh './gradlew docker'
+                sh 'docker-compose up -d'
+                sh 'docker running on port 8080'
             }
         }
     }
