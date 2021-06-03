@@ -19,10 +19,11 @@ pipeline {
           runApp()
         }
     }
-   
-}
-
-def runApp(){
+    
+   def runApp(){
     sh "docker-compose up -d"
     echo "Application started"
+    }
+
 }
+
