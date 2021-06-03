@@ -5,25 +5,25 @@ pipeline {
         pollSCM '* * * * *'
     }
     stages {
+        
         stage('Build') {
             steps {
                 sh './gradlew assemble'
             }
         }
+        
         stage('Test') {
             steps {
                 sh './gradlew test'
             }
         }
+        
         stage('Run App'){
-          runApp()
+            steps {
+                sh "docker-compose up -d"
+                echo "Application started"
+            }
         }
     }
-    
-   def runApp(){
-    sh "docker-compose up -d"
-    echo "Application started"
-    }
-
 }
 
